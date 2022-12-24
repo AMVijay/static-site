@@ -1,6 +1,7 @@
 import { Configuration } from "webpack";
 
 const webpackConfig: Configuration = {
+    mode: 'production',
     entry: './src/index.ts',
     module: {
         rules: [
