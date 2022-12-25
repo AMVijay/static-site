@@ -8,14 +8,13 @@ export class MarkdownService {
         const blogTag: Element = document.getElementsByTagName("blog")[0];
 
         const markdownContentURL: string = blogTag.getAttribute("content") as string;
-        console.log("blogTag ", markdownContentURL);
+        // console.log("blogTag ", markdownContentURL);
 
         const { data, status } = await axios.get(markdownContentURL);
-        console.log("Data and Status", data, status);
+        // console.log("Data and Status", data, status);
         if (status === 200) {
             blogTag.innerHTML = marked.parse(data);
         }
-
 
         // return data;
     }
