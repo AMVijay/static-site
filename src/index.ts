@@ -2,6 +2,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { BlogInterface } from './blog.interface';
+import { marked } from 'marked';
 
 const blog : BlogInterface = {
     title: "test",
@@ -25,8 +26,8 @@ const htmlTemplate = `
 </html>
 `;
 
-const blogDir = path.join(__dirname, '/dist/',blog.title);
+const blogDir = path.join(__dirname, '../dist/',blog.title);
 fs.mkdirSync(blogDir);
 
- 
+fs.writeFileSync(path.join(blogDir,"/index.html"),htmlTemplate);
 
