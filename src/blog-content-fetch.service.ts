@@ -3,7 +3,7 @@ import { marked } from 'marked';
 import path, {join} from 'path';
 import { BlogInterface } from './blog.interface';
 
-export class BlogService{
+export class BlogContentFetchService{
 
     private blogs: BlogInterface[] = [];
     public fetchBlogContent(){

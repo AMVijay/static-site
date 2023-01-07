@@ -1,33 +1,15 @@
-
-import * as fs from 'fs';
-import * as path from 'path';
 import { BlogInterface } from './blog.interface';
-import { BlogService } from './blog.service';
+import { BlogContentFetchService } from './blog-content-fetch.service';
+import { HtmlGenerateService } from './html-generate.service';
 
-const blogService: BlogService = new BlogService();
-const blogs : BlogInterface[] = blogService.fetchBlogContent();
+const blogContentFetchService: BlogContentFetchService = new BlogContentFetchService();
+const blogs : BlogInterface[] = blogContentFetchService.fetchBlogContent();
 
 console.log("Blogs", blogs);
 
-const htmlTemplate = `
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>${blog.title}</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta name="author" content="VIJAYaraaghavan Manoharan">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-</head>
-<body>
-   <main>${blog.content}</main>
-</body>
-</html>
-`;
+const htmlGenerateService: HtmlGenerateService = new HtmlGenerateService();
 
-const blogDir = path.join(__dirname, '../dist/',blog.title);
-fs.mkdirSync(blogDir);
-
-fs.writeFileSync(path.join(blogDir,"/index.html"),htmlTemplate);
+blogs.forEach(blog => {
+    htmlGenerateService.generateHtml(blog);
+});
 
