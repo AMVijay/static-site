@@ -2,12 +2,12 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { BlogInterface } from './blog.interface';
-import { marked } from 'marked';
+import { BlogService } from './blog.service';
 
-const blog : BlogInterface = {
-    title: "test",
-    content: "test"
-};
+const blogService: BlogService = new BlogService();
+const blogs : BlogInterface[] = blogService.fetchBlogContent();
+
+console.log("Blogs", blogs);
 
 const htmlTemplate = `
 <!DOCTYPE html>
