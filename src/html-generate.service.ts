@@ -15,7 +15,7 @@ export class HtmlGenerateService {
     <title>${blog.title}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <meta name="author" content="VIJAYaraaghavan Manoharan">
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/main.css'>
 </head>
 <body>
    <main>${blog.content}</main>
