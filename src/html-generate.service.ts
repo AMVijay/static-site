@@ -1,10 +1,10 @@
 import path from "path";
 import fs from "fs";
-import { BlogInterface } from "./blog.interface";
+import { BlogType } from "./blog.type";
 
 export class HtmlGenerateService {
 
-    public generateHtml(blog: BlogInterface) {
+    public generateHtml(blog: BlogType) {
 
         const htmlTemplate = `
 <!DOCTYPE html>
